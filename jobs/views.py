@@ -30,7 +30,7 @@ def newjob(request):
                                       contact=contact, qualifications=qualifications, skills=skills, experience=experience,aboutus=aboutus,
                                       applicationmethod=applicationmethod)
             job.save()
-            return redirect('/home')
+            return redirect('/')
         except Exception as e:
             print(e)
             return HttpResponseServerError("An error occurred while saving the job.")
