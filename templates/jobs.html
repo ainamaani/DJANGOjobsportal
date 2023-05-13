@@ -1,3 +1,6 @@
+{% extends "navbar.html "%}
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +8,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobs</title>
+    <style>
+        .job{
+            background: #fff;
+            border-radius: 4px;
+            border-left: 5px solid #2095ad;
+            margin-left: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+            line-height: 0;
+            margin-right: 30%;
+        }
+        .job h4{
+            margin-bottom: 20px;
+            color: #2095ad;
+            font-size: 1.2em;
+        }
+        .job p{
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+        .job a{
+            background: #2095ad;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .head{
+            margin-left: 30%;
+            font-size: 1.3em;
+        }
+    </style>
 </head>
 <body>
-    <h4>ALL Jobs</h4>
+    <h4 class="head">Available jobs</h4>
     {% for job in jobs %}
-        <h2>{{job.title}}</h2>
-        <h4>{{job.company}}</h4>
-        <h4>{{job.description}}</h4>
-        <a href="{% url 'details' job.id %}">View job details</a>
+        <div class="job">
+            <h4>{{job.title}}</h4>
+            <p><strong>Hiring company:</strong>{{job.company}}</p>
+            <p><strong>Location:</strong>{{job.location}}</p>
+            <p><strong>Job type:</strong>{{job.jobtype}}</p>
+            <p><strong>Category:</strong>{{job.category}}</p>
+            <a href="{% url 'details' job.id %}">View job details</a>
+        </div>
     {% endfor %}
 </body>
 </html>
+
+{% endblock %}
