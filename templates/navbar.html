@@ -42,7 +42,10 @@
         }
         .links ul li a{
             text-decoration: none;
-            color: #000;
+            color: #fff;
+            background: #2095ad;
+            padding: 5px;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -52,8 +55,6 @@
             <h2>JobsPortal</h2>
             <div class="links">
                 <ul>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
                     <li><a href="{% url 'newjob' %}">Add job</a></li>
                 </ul>
             </div>
